@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row py-5">
+    <div class="col-md-4 d-flex align-items-center">
+      <div>
+        <div class="border w-50 mb-4"></div>
+        <h2>Discover Every TV Show in Our Collection</h2>
+        <p class="secondcolor my-2">
+          Dive into a massive collection spanning action, drama, comedy, and more.
+        </p>
+        <div class="border w-100 mt-4"></div>
+      </div>
+    </div>
+
+    <!-- TV Show Cards -->
+    <div *ngFor="let tv of pagedTvShows" class="col-md-2">
+      <div class="movie my-2 position-relative">
+        <a [routerLink]="['/tvdetails', tv.id]">
+          <img class="w-100" [src]="imgurl + tv.poster_path" [alt]="tv.name || tv.title">
+          <h3 class="h6 my-2">{{ tv.name || tv.title }}</h3>
+          <div class="vote">{{ tv.vote_average | number: '1.1-1' }}</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Pagination Buttons -->
+    <div class="col-12 d-flex justify-content-center mt-4">
+      <button
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        class="btn btn-sm mx-1"
+        [class.btn-primary]="currentPage === i + 1"
+        [class.btn-outline-primary]="currentPage !== i + 1"
+        (click)="currentPage = i + 1">
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+</div>

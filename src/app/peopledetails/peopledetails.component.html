@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img class="w-100" [src]="imgurl + peopletedails?.profile_path" [alt]="peopletedails?.title">
+        </div>
+        <div class="col-8 p-5  my-5">
+            <h3 >{{peopletedails?.name}}</h3>
+             <p>gender: {{peopletedails?.gender}}</p>
+              <p>birthday: {{peopletedails?.birthday}}</p>
+              <p>place_of_birth: {{peopletedails?.place_of_birth}}</p>
+              <p>popularity: {{peopletedails?.popularity | number:'1.1-1'}}</p>
+             <p>known_for_department: {{peopletedails?.known_for_department}}</p>
+             <p>overview: <br>{{peopletedails?.biography.split(' ').slice(0,93).join(' ') + '...'}}</p>
+             <button> <a [href]="peopletedails?.homepage"> More About Him</a></button>
+        </div>
+    </div>
+</div>
+
+

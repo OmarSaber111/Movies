@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+    <!-- Brand/Logo with routerLink -->
+    <a class="navbar-brand fw-bold" [routerLink]="['/']">Noxe</a>
+    
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <!-- Main Navigation Links (Left) -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a  class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        <li class="nav-item">
+        <!-- *ngIf="!islogin" -->
+          <a  class="nav-link" [routerLink]="['/about']" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item">
+        <!-- *ngIf="!islogin" -->
+          <a  class="nav-link" [routerLink]="['/movies']" routerLinkActive="active">Movies</a>
+        </li>
+        <li class="nav-item">
+        <!-- *ngIf="!islogin" -->
+          <a  class="nav-link" [routerLink]="['/tvshows']" routerLinkActive="active">Tvshows</a>
+        </li>
+        <li class="nav-item">
+        <!-- *ngIf="!islogin" -->
+          <a  class="nav-link" [routerLink]="['/network']" routerLinkActive="active">Contactus</a>
+        </li>
+        <li class="nav-item">
+        <!-- *ngIf="!islogin" -->
+          <a  class="nav-link" [routerLink]="['/people']" routerLinkActive="active">People</a>
+        </li>
+      </ul>
+      
+      <!-- Search Form (Center) -->
+      <form class="d-flex mx-4" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+      
+      <!-- Social Media Icons -->
+      <div class="social-media d-flex align-items-center me-3">
+        <a [routerLink]="['/instagram']" class="text-white mx-2" aria-label="Instagram">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+        <a [routerLink]="['/spotify']" class="text-white mx-2" aria-label="Spotify">
+          <i class="fab fa-spotify fa-lg"></i>
+        </a>
+        <a [routerLink]="['/facebook']" class="text-white mx-2" aria-label="Facebook">
+          <i class="fab fa-facebook-f fa-lg"></i>
+        </a>
+        <a [routerLink]="['/youtube']" class="text-white mx-2" aria-label="YouTube">
+          <i class="fab fa-youtube fa-lg"></i>
+        </a>
+        <a [routerLink]="['/soundcloud']" class="text-white mx-2" aria-label="SoundCloud">
+          <i class="fab fa-soundcloud fa-lg"></i>
+        </a>
+      </div>
+      
+      <!-- Auth Links (Right) -->
+      <div class="d-flex">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+        <!-- *ngIf="!islogin" -->
+            <a  class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+          </li>
+          <li class="nav-item">
+       <!-- *ngIf="!islogin" -->
+            <a   class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Register</a>
+          </li>
+          <li class="nav-item">
+        <!-- *ngIf="islogin"  -->
+            <a   class="nav-link" [routerLink]="['/logout']" routerLinkActive="active" (click)="islogout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+

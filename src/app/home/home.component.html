@@ -1,0 +1,87 @@
+<!-- <div class="movies-container">
+  <div class="header">
+    <h2>Trending Movies to watch Right Now</h2>
+    <p>Most watched Movies by days</p>
+  </div>
+  <div class="movies-grid">
+    <div class="movie-card" *ngFor="let movie of trendingmovie">
+      <div class="rating-badge">{{ movie.vote_average }}</div>
+      <img [src]="imgurl + movie.poster_path" [alt]="movie.title">
+      <h4>{{ movie.title }}</h4>
+    </div>
+  </div>
+</div> -->
+<app-home-header [trendingmovie]="trendingmovie"></app-home-header>
+
+<div class="container">
+
+  <div class="row py-5">
+    <div class="col-md-4 d-flex align-items-center ">
+      <div>
+       <div class="border w-25 mb-4"></div>
+       <h2>Trending Movies to watch Right Now</h2>
+       <p class="secondcolor my-2">Most watched Movies by days</p>
+       <div class="border w-75 mt-4"></div>
+      </div>
+    </div>
+
+
+    <div *ngFor="let movie of trendingmovie" class="col-md-2 ">
+      <div class="movie my-2 position-relative">
+        <a [routerLink]="['/moviedetails', movie.id]">
+          <img class="w-100" [src]="imgurl + movie.poster_path" [alt]="movie.title">
+          <h3 class="h6 my-2">{{ movie.title }}</h3>
+          <div class="vote">
+            {{ movie.vote_average | number:'1.1-1' }}
+          </div>
+        </a>
+      </div>
+     </div>
+  </div>
+
+  <div class="row py-5">
+    <div class="col-md-4 d-flex align-items-center ">
+      <div>
+       <div class="border w-25 mb-4"></div>
+       <h2>Trending Tv to watch Right Now</h2>
+       <p class="secondcolor my-2">Most watched Tv by days</p>
+       <div class="border w-75 mt-4"></div>
+      </div>
+    </div>
+    <div *ngFor="let tv of trendingtv" class="col-md-2 ">
+      <div class="tv my-2 position-relative">
+       <a [routerLink]="['/tvdetails',tv.id]">
+         <img class="w-100" [src]="imgurl + tv.poster_path" [alt]="tv.title">
+         <h3 class="h6 my-2">{{ tv.name }}</h3>
+         <div class="vote">
+           {{ tv.vote_average | number:'1.1-1' }}
+         </div>
+        </a>
+      </div>
+     </div>
+  </div>
+
+  <div class="row py-5">
+    <div class="col-md-4 d-flex align-items-center ">
+      <div>
+       <div class="border w-25 mb-4"></div>
+       <h2>Trending Peoples to watch Right Now</h2>
+       <p class="secondcolor my-2">Most watched Peoples by days</p>
+       <div class="border w-75 mt-4"></div>
+      </div>
+    </div>
+    <div *ngFor="let people of trendingpeople" class="col-md-2 ">
+      <!-- *ngIf="people?.gender == 2" -->
+      <div  class="people my-2 position-relative">
+       <a [routerLink]="['/peopledetails', people?.id]">
+        <img class="w-100" [src]="imgurl + people?.profile_path" [alt]="people?.name">
+        <h3 class="h6 my-2">{{ people?.name }}</h3>
+       </a>
+       <!-- <div class="vote">
+        {{ people?.popularity | number:'1.1-1' }}
+       </div> -->
+      </div>
+     </div>
+  </div>
+</div>
+

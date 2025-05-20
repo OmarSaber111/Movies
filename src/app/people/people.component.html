@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row py-5">
+    <div class="col-md-4 d-flex align-items-center">
+      <div>
+        <div class="border w-50 mb-4"></div>
+        <h2>Discover Famous People in Entertainment</h2>
+        <p class="secondcolor my-2">
+          Explore actors, directors, and creators across all genres and eras.
+        </p>
+        <div class="border w-100 mt-4"></div>
+      </div>
+    </div>
+
+    <!-- People Cards -->
+   <!-- People Cards -->
+<div *ngFor="let person of pagedPeople" class="col-md-2">
+  <div class="movie my-2 position-relative">
+    <a [routerLink]="['/peopledetails', person.id]">
+      <img
+        class="w-100"
+        [src]="imgurl+person?.profile_path"
+        [alt]="person.name">
+      <h3 class="h6 my-2 text-center">{{ person.name }}</h3>
+    </a>
+  </div>
+</div>
+
+
+    <!-- Pagination Buttons -->
+    <div class="col-12 d-flex justify-content-center mt-4">
+      <button
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        class="btn btn-sm mx-1"
+        [class.btn-primary]="currentPage === i + 1"
+        [class.btn-outline-primary]="currentPage !== i + 1"
+        (click)="currentPage = i + 1">
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+</div>
+

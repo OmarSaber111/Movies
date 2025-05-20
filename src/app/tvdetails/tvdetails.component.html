@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img class="w-100" [src]="imgurl + tvtedails?.poster_path" [alt]="tvtedails?.title">
+        </div>
+        <div class="col-8 p-5  my-5">
+            <h3 >{{tvtedails?.name}}</h3>
+             <p >{{tvtedails?.tagline}}</p>
+             <p>vote_average: {{tvtedails?.vote_average | number:'1.1-1'}}</p>
+             <p>vote_count: {{tvtedails?.vote_count }}</p>
+             <p>popularity: {{tvtedails?.popularity}}</p>
+             <p>release_date: {{tvtedails?.release_date}}</p>
+             <p>status: {{tvtedails?.status}}</p>
+             <p>overview: <br>{{tvtedails?.overview}}</p>
+             <button> <a [href]="tvtedails?.homepage"> Go To The Movie</a></button>
+        </div>
+    </div>
+</div>
+

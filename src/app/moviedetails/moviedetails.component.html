@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img class="w-100" [src]="imgurl + moviedetails?.poster_path" [alt]="moviedetails?.title">
+        </div>
+        <div class="col-8 p-5  my-5">
+            <h3 >{{moviedetails?.title}}</h3>
+             <p >{{moviedetails.tagline}}</p>
+             <p>vote_average: {{moviedetails.vote_average | number:'1.1-1'}}</p>
+             <p>vote_count: {{moviedetails.vote_count }}</p>
+             <p>popularity: {{moviedetails.popularity}}</p>
+             <p>release_date: {{moviedetails.release_date}}</p>
+             <p>status: {{moviedetails.status}}</p>
+            <p>overview: <br>{{moviedetails?.overview}}</p>
+           <button> <a [href]="moviedetails.homepage"> Go To The Movie</a></button>
+        </div>
+    </div>
+</div>
